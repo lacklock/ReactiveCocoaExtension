@@ -17,6 +17,7 @@
 		3A994B5A1E07EBA60020178A /* ReactiveCocoaExtension.h in Headers */ = {isa = PBXBuildFile; fileRef = 3A994B4A1E07EBA60020178A /* ReactiveCocoaExtension.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		3A994B5D1E07EBA60020178A /* ReactiveCocoaExtension.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3A994B481E07EBA60020178A /* ReactiveCocoaExtension.framework */; };
 		3A994B5E1E07EBA60020178A /* ReactiveCocoaExtension.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 3A994B481E07EBA60020178A /* ReactiveCocoaExtension.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		3A994B671E07F05B0020178A /* SchedulerExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A994B661E07F05B0020178A /* SchedulerExtension.swift */; };
 		8AC42200097F184BC88C6CEA /* Pods_AppDemo.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 10A06A8B73ED24C85BF65698 /* Pods_AppDemo.framework */; };
 		AB379F4C230EEDC8C02C250B /* Pods_ReactiveCocoaExtension.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 68281DC3F9694C97BFB47642 /* Pods_ReactiveCocoaExtension.framework */; };
 		C584C6D606C4FD33410F0B97 /* Pods_ReactiveCocoaExtensionTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8EF4DAD980691AEE051FC8EF /* Pods_ReactiveCocoaExtensionTests.framework */; };
@@ -77,6 +78,7 @@
 		3A994B501E07EBA60020178A /* ReactiveCocoaExtensionTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = ReactiveCocoaExtensionTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		3A994B571E07EBA60020178A /* ReactiveCocoaExtensionTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReactiveCocoaExtensionTests.swift; sourceTree = "<group>"; };
 		3A994B591E07EBA60020178A /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		3A994B661E07F05B0020178A /* SchedulerExtension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SchedulerExtension.swift; sourceTree = "<group>"; };
 		44B83CC0DEB60E0DF58B5FB8 /* Pods-ReactiveCocoaExtensionTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ReactiveCocoaExtensionTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-ReactiveCocoaExtensionTests/Pods-ReactiveCocoaExtensionTests.release.xcconfig"; sourceTree = "<group>"; };
 		4903D880437484F5F54E0D93 /* Pods-AppDemo.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-AppDemo.debug.xcconfig"; path = "Pods/Target Support Files/Pods-AppDemo/Pods-AppDemo.debug.xcconfig"; sourceTree = "<group>"; };
 		68281DC3F9694C97BFB47642 /* Pods_ReactiveCocoaExtension.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_ReactiveCocoaExtension.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -155,6 +157,7 @@
 			children = (
 				3A994B4A1E07EBA60020178A /* ReactiveCocoaExtension.h */,
 				3A994B4B1E07EBA60020178A /* Info.plist */,
+				3A994B661E07F05B0020178A /* SchedulerExtension.swift */,
 			);
 			path = ReactiveCocoaExtension;
 			sourceTree = "<group>";
@@ -285,6 +288,7 @@
 					};
 					3A994B471E07EBA60020178A = {
 						CreatedOnToolsVersion = 8.1;
+						LastSwiftMigration = 0810;
 						ProvisioningStyle = Automatic;
 					};
 					3A994B4F1E07EBA60020178A = {
@@ -478,6 +482,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				3A994B671E07F05B0020178A /* SchedulerExtension.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -624,6 +629,7 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 4903D880437484F5F54E0D93 /* Pods-AppDemo.debug.xcconfig */;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				INFOPLIST_FILE = AppDemo/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
@@ -637,6 +643,7 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 751F241754228E79AA770AC8 /* Pods-AppDemo.release.xcconfig */;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				INFOPLIST_FILE = AppDemo/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
@@ -650,6 +657,7 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 2020DB03C1A26403A80823C5 /* Pods-ReactiveCocoaExtension.debug.xcconfig */;
 			buildSettings = {
+				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_IDENTITY = "";
 				CURRENT_PROJECT_VERSION = 1;
 				DEFINES_MODULE = YES;
@@ -662,6 +670,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = lacklock.ReactiveCocoaExtension;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SKIP_INSTALL = YES;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				SWIFT_VERSION = 3.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 				VERSIONING_SYSTEM = "apple-generic";
@@ -673,6 +682,7 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = E7A0F3ADE61900582F796315 /* Pods-ReactiveCocoaExtension.release.xcconfig */;
 			buildSettings = {
+				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_IDENTITY = "";
 				CURRENT_PROJECT_VERSION = 1;
 				DEFINES_MODULE = YES;
@@ -748,6 +758,7 @@
 				3A994B601E07EBA60020178A /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		3A994B651E07EBA60020178A /* Build configuration list for PBXNativeTarget "ReactiveCocoaExtensionTests" */ = {
 			isa = XCConfigurationList;
@@ -756,6 +767,7 @@
 				3A994B621E07EBA60020178A /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
