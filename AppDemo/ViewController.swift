@@ -7,19 +7,18 @@
 //
 
 import UIKit
+import ReactiveCocoaExtension
+import ReactiveSwift
 
 class ViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        // Do any additional setup after loading the view, typically from a nib.
+        
+        let (signal,dispose) = QueueScheduler.signal(interval: DispatchTimeInterval.seconds(1))
+        
+        
     }
-
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
-    }
-
 
 }
 
