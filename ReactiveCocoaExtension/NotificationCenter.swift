@@ -34,13 +34,12 @@ class SelectorTarget<Value, Error: Swift.Error>: NSObject {
 
 }
 
-class NotificationReceiver: SelectorTarget<Notification, NoError>,Disposable {
+fileprivate class NotificationReceiver: SelectorTarget<Notification, NoError>,Disposable {
     
     init(identifier: String, observer: Observer<Notification, NoError>) {
         super.init(identifier: identifier, observer: observer)
         NotificationReceiverQueue.shared.add(receiver: self)
     }
-
     
     private var disposable = false
     var isDisposed: Bool  {
@@ -63,7 +62,7 @@ class NotificationReceiver: SelectorTarget<Notification, NoError>,Disposable {
     }
 }
 
-class NotificationReceiverQueue {
+fileprivate class NotificationReceiverQueue {
     
     static let shared = NotificationReceiverQueue()
     
