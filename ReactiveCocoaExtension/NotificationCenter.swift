@@ -12,16 +12,16 @@ import Result
 
 public extension Reactive where Base: NotificationCenter {
     
-    func signal(forNotification name: NSNotification.Name, object: Any? = nil) -> Signal<Notification, NoError> {
+    func signal(forNotification name: NSNotification.Name, object: Any? = nil) -> (signal: Signal<Notification, NoError>,dispose: Disposable) {
         let (signal, observer) = Signal<Notification, NoError>.pipe()
-        let object = NotificationObserverObject(identifier: name.rawValue, observer: observer)
-        NotificationCenter.default.addObserver(object, selector: #selector(object.receive(notification:)), name: name, object: object)
-        return signal
+        let receiverObject = NotificationReceiver(identifier: name.rawValue, observer: observer)
+        NotificationCenter.default.addObserver(receiverObject, selector: #selector(receiverObject.receive(notification:)), name: name, object: object)
+        return (signal,receiverObject)
     }
     
 }
 
-class ObserverObject<Value, Error: Swift.Error>: NSObject {
+class SelectorTarget<Value, Error: Swift.Error>: NSObject {
     
     var identifier: AnyHashable
     var observer: Observer<Value, Error>
@@ -34,9 +34,50 @@ class ObserverObject<Value, Error: Swift.Error>: NSObject {
 
 }
 
-class NotificationObserverObject: ObserverObject<Notification, NoError> {
+class NotificationReceiver: SelectorTarget<Notification, NoError>,Disposable {
+    
+    init(identifier: String, observer: Observer<Notification, NoError>) {
+        super.init(identifier: identifier, observer: observer)
+        NotificationReceiverQueue.shared.add(receiver: self)
+    }
+
+    
+    private var disposable = false
+    var isDisposed: Bool  {
+        return disposable
+    }
     
     func receive(notification: Notification) {
         observer.send(value: notification)
+    }
+    
+    func dispose() {
+        disposable = true
+        NotificationCenter.default.removeObserver(self)
+        observer.sendCompleted()
+        NotificationReceiverQueue.shared.remove(receiver: self)
+    }
+    
+    static func ==(lhs: NotificationReceiver, rhs: NotificationReceiver) -> Bool {
+        return lhs.identifier == rhs.identifier
+    }
+}
+
+class NotificationReceiverQueue {
+    
+    static let shared = NotificationReceiverQueue()
+    
+    private init() {
+        
+    }
+    
+    fileprivate var receivers = Set<NotificationReceiver>()
+    
+    func add(receiver: NotificationReceiver) {
+        receivers.insert(receiver)
+    }
+    
+    func remove(receiver: NotificationReceiver) {
+        receivers.remove(receiver)
     }
 }

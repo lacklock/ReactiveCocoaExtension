@@ -14,6 +14,8 @@ import Result
 class ViewController: UIViewController {
     
     var sig: Signal<Date,NoError>?
+    
+    private var disposeKyeboard: Disposable!
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -27,11 +29,19 @@ class ViewController: UIViewController {
             observer.send(value: 1)
             observer.send(value: 2)
         }
-    
-        let keyboardSignal = NotificationCenter.default.reactive.signal(forNotification: Notification.Name.UIKeyboardWillShow)
         
+        let tuple = NotificationCenter.default.reactive.signal(forNotification: Notification.Name.UIKeyboardWillShow)
         
+        tuple.signal.observeValues { (n) in
+            print(n.name.rawValue)
+        }
+        
+        disposeKyeboard = tuple.dispose
     }
 
+    @IBAction func hide(_ sender: Any) {
+        view.endEditing(true)
+        disposeKyeboard.dispose()
+    }
 }
 
