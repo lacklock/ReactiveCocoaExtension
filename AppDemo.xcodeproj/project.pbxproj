@@ -8,7 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		3A88A7E81E0A51170091783D /* SignalProducerExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A88A7E71E0A51170091783D /* SignalProducerExtension.swift */; };
-		3A88A7EF1E0A71E30091783D /* NotificationCenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A88A7EE1E0A71E30091783D /* NotificationCenter.swift */; };
+		3A88A7EF1E0A71E30091783D /* NotificationCenterExtention.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A88A7EE1E0A71E30091783D /* NotificationCenterExtention.swift */; };
 		3A994B321E07EB530020178A /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A994B311E07EB530020178A /* AppDelegate.swift */; };
 		3A994B341E07EB530020178A /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A994B331E07EB530020178A /* ViewController.swift */; };
 		3A994B371E07EB530020178A /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3A994B351E07EB530020178A /* Main.storyboard */; };
@@ -68,7 +68,7 @@
 		2020DB03C1A26403A80823C5 /* Pods-ReactiveCocoaExtension.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ReactiveCocoaExtension.debug.xcconfig"; path = "Pods/Target Support Files/Pods-ReactiveCocoaExtension/Pods-ReactiveCocoaExtension.debug.xcconfig"; sourceTree = "<group>"; };
 		31DDADCC684345786F11EC7D /* Pods-ReactiveCocoaExtensionTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ReactiveCocoaExtensionTests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-ReactiveCocoaExtensionTests/Pods-ReactiveCocoaExtensionTests.debug.xcconfig"; sourceTree = "<group>"; };
 		3A88A7E71E0A51170091783D /* SignalProducerExtension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SignalProducerExtension.swift; sourceTree = "<group>"; };
-		3A88A7EE1E0A71E30091783D /* NotificationCenter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NotificationCenter.swift; sourceTree = "<group>"; };
+		3A88A7EE1E0A71E30091783D /* NotificationCenterExtention.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NotificationCenterExtention.swift; sourceTree = "<group>"; };
 		3A994B2E1E07EB530020178A /* AppDemo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = AppDemo.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		3A994B311E07EB530020178A /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		3A994B331E07EB530020178A /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -163,7 +163,7 @@
 				3A994B4B1E07EBA60020178A /* Info.plist */,
 				3A994B661E07F05B0020178A /* SchedulerExtension.swift */,
 				3A88A7E71E0A51170091783D /* SignalProducerExtension.swift */,
-				3A88A7EE1E0A71E30091783D /* NotificationCenter.swift */,
+				3A88A7EE1E0A71E30091783D /* NotificationCenterExtention.swift */,
 			);
 			path = ReactiveCocoaExtension;
 			sourceTree = "<group>";
@@ -490,7 +490,7 @@
 			files = (
 				3A994B671E07F05B0020178A /* SchedulerExtension.swift in Sources */,
 				3A88A7E81E0A51170091783D /* SignalProducerExtension.swift in Sources */,
-				3A88A7EF1E0A71E30091783D /* NotificationCenter.swift in Sources */,
+				3A88A7EF1E0A71E30091783D /* NotificationCenterExtention.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
